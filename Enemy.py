@@ -3,14 +3,26 @@ import pygame
 import window_parameters as wp
 
 width   =   50 
-height  =   50
+height  =   40
+
+# Set the image path for the enemy
+enemy_image_path = r"assets/enemy.png"
 
 class Enemy:
     def __init__(self, x, y):
+        # x and y positions 
         self.x = x
         self.y = y
         self.width = width
         self.height = height
+
+        #image of the enemy
+        self.image = pygame.image.load(enemy_image_path)
+
+        # Scale the enemy image to fit the enemy dimensions
+        self.image = pygame.transform.scale(self.image, (self.width, self.height))
+
+        #health bar 
         self.health = 100
         self.max_health = 100
         self.health_bar_width = self.width
@@ -19,9 +31,14 @@ class Enemy:
         self.health_bar_bg_color = (255, 0, 0)  # Red color for background of health bar
 
     def draw(self, window):
-        pygame.draw.rect(window, (255, 0, 0), (self.x, self.y, self.width, self.height))
+        #pygame.draw.rect(window, (255, 0, 0), (self.x, self.y, self.width, self.height))
+
+        # Draw the enemy image
+        window.blit(self.image, (self.x, self.y))
+
         pygame.draw.rect(window, self.health_bar_bg_color, (self.x, self.y - 10, self.width, self.health_bar_height))
         pygame.draw.rect(window, self.health_bar_color, (self.x, self.y - 10, int(self.health_bar_width), self.health_bar_height))
+
     def move(self):
 
         changeDir = random.randint(0,10)
