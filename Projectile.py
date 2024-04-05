@@ -3,16 +3,11 @@ import pygame
 projectile_speed = 1
 projectile_dimensions = (10, 10)
 
-projectile_image_path = r"assets/projectile.png"
-
 class Projectile:
     def __init__(self, x, y):
         self.x = x
         self.y = y
         self.speed = projectile_speed
-
-        self.image = pygame.image.load(projectile_image_path)
-        self.image = pygame.transform.scale(self.image, projectile_dimensions)
 
     def move(self):
         self.y -= self.speed
