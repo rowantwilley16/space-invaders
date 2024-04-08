@@ -6,7 +6,7 @@ width   =   50
 height  =   40
 
 # Set the image path for the enemy
-enemy_image_path = r"assets/enemy.png"
+enemy_image_path = "assets/enemy.png"
 
 class Enemy:
     def __init__(self, x, y):

@@ -7,7 +7,7 @@ width = 50
 height = 50  
 
 # Set the image path for the player
-player_image_path = r"assets/player.png"
+player_image_path = "assets/player.png"
 
 class Player:
     def __init__(self, x, y):
