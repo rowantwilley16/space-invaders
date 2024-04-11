@@ -18,8 +18,6 @@ class Projectile:
         #draw the projectile
         #window.blit(self.image, (self.x, self.y))
         
-        
-
     def update(self,window):
         self.move()
         self.draw(window)
